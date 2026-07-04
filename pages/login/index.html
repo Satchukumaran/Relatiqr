@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign in — RelatiQR</title>
+  <link rel="stylesheet" href="/css/theme.css">
+<script src="https://cdn.moda.app/runtime-libs/tailwind-browser-4.1.13-index.global.min.js"></script><style data-moda-export-fonts="true">@font-face { font-family: 'Manrope'; src: url("../../fonts/manrope-wght--extralight.ttf") format("truetype"); font-style: normal; font-weight: 200; font-display: swap; }
+@font-face { font-family: 'Manrope'; src: url("../../fonts/manrope-wght--light.ttf") format("truetype"); font-style: normal; font-weight: 300; font-display: swap; }
+@font-face { font-family: 'Manrope'; src: url("../../fonts/manrope-wght--regular.ttf") format("truetype"); font-style: normal; font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Manrope'; src: url("../../fonts/manrope-wght--medium.ttf") format("truetype"); font-style: normal; font-weight: 500; font-display: swap; }
+@font-face { font-family: 'Manrope'; src: url("../../fonts/manrope-wght--semibold.ttf") format("truetype"); font-style: normal; font-weight: 600; font-display: swap; }
+@font-face { font-family: 'Manrope'; src: url("../../fonts/manrope-wght--bold.ttf") format("truetype"); font-style: normal; font-weight: 700; font-display: swap; }
+@font-face { font-family: 'Manrope'; src: url("../../fonts/manrope-wght--extrabold.ttf") format("truetype"); font-style: normal; font-weight: 800; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../../fonts/fraunces-soft-wonk-opsz-wght--blackitalic.ttf") format("truetype"); font-style: italic; font-weight: 900; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../../fonts/fraunces-soft-wonk-opsz-wght--thin.ttf") format("truetype"); font-style: normal; font-weight: 100; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../../fonts/fraunces-soft-wonk-opsz-wght--thinitalic.ttf") format("truetype"); font-style: italic; font-weight: 100; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../../fonts/fraunces-soft-wonk-opsz-wght--extralight.ttf") format("truetype"); font-style: normal; font-weight: 200; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../../fonts/fraunces-soft-wonk-opsz-wght--extralightitalic.ttf") format("truetype"); font-style: italic; font-weight: 200; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../../fonts/fraunces-soft-wonk-opsz-wght--light.ttf") format("truetype"); font-style: normal; font-weight: 300; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../../fonts/fraunces-soft-wonk-opsz-wght--lightitalic.ttf") format("truetype"); font-style: italic; font-weight: 300; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../../fonts/fraunces-soft-wonk-opsz-wght--regular.ttf") format("truetype"); font-style: normal; font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../../fonts/fraunces-soft-wonk-opsz-wght--italic.ttf") format("truetype"); font-style: italic; font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../../fonts/fraunces-soft-wonk-opsz-wght--medium.ttf") format("truetype"); font-style: normal; font-weight: 500; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../../fonts/fraunces-soft-wonk-opsz-wght--mediumitalic.ttf") format("truetype"); font-style: italic; font-weight: 500; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../../fonts/fraunces-soft-wonk-opsz-wght--semibold.ttf") format("truetype"); font-style: normal; font-weight: 600; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../../fonts/fraunces-soft-wonk-opsz-wght--semibolditalic.ttf") format("truetype"); font-style: italic; font-weight: 600; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../../fonts/fraunces-soft-wonk-opsz-wght--bold.ttf") format("truetype"); font-style: normal; font-weight: 700; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../../fonts/fraunces-soft-wonk-opsz-wght--bolditalic.ttf") format("truetype"); font-style: italic; font-weight: 700; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../../fonts/fraunces-soft-wonk-opsz-wght--extrabold.ttf") format("truetype"); font-style: normal; font-weight: 800; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../../fonts/fraunces-soft-wonk-opsz-wght--extrabolditalic.ttf") format("truetype"); font-style: italic; font-weight: 800; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../../fonts/fraunces-soft-wonk-opsz-wght--black.ttf") format("truetype"); font-style: normal; font-weight: 900; font-display: swap; }</style></head>
+<body data-bg="dark" class="min-h-screen relative overflow-x-hidden" style="background:radial-gradient(130% 100% at 80% -10%, #531f5e 0%, #2a1230 48%, #160817 100%)">
+
+  <!-- ambient aurora glows -->
+  <div class="aurora aurora-anim" style="width:520px;height:520px;background:#7a2a55;top:-160px;left:-120px"></div>
+  <div class="aurora aurora-anim" style="width:460px;height:460px;background:#d4a657;bottom:-180px;right:-120px;opacity:.4;animation-delay:-6s"></div>
+  <div class="aurora" style="width:300px;height:300px;background:#c45b7c;top:40%;left:55%;opacity:.25"></div>
+
+  <!-- subtle network lines -->
+  <svg class="absolute inset-0 w-full h-full opacity-[0.12]" preserveAspectRatio="none" viewBox="0 0 1000 800" fill="none">
+    <g stroke="#e8c987" stroke-width="1">
+      <line x1="100" y1="120" x2="320" y2="300"></line><line x1="900" y1="160" x2="650" y2="360"></line>
+      <line x1="200" y1="650" x2="450" y2="480"></line><line x1="820" y1="640" x2="600" y2="470"></line>
+    </g>
+  </svg>
+
+  <!-- nav -->
+  <nav class="relative z-10 max-w-6xl mx-auto px-6 py-6 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-2.5">
+      <span class="w-9 h-9 rounded-xl grid place-items-center" style="background:linear-gradient(135deg,var(--gold),var(--gold-soft))">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3a2410" stroke-width="2"><circle cx="7" cy="7" r="3"></circle><circle cx="17" cy="17" r="3"></circle><path d="M10 7h7v7"></path></svg>
+      </span>
+      <span class="font-display text-xl font-600" style="color:var(--cream)">RelatiQR</span>
+    </a>
+    <a href="/" class="nav-link text-sm font-600">← Back to home</a>
+  </nav>
+
+  <!-- main -->
+  <main class="relative z-10 max-w-6xl mx-auto px-6 pt-6 pb-16 grid lg:grid-cols-[1fr,1fr] gap-10 lg:gap-16 items-center min-h-[80svh]">
+
+    <!-- left: brand pitch -->
+    <div class="hidden lg:block reveal">
+      <span class="tag" style="background:rgba(232,201,135,.14);color:var(--gold-soft)">VIP Access</span>
+      <h1 class="font-display font-600 leading-[1.05] mt-5 text-[clamp(2.4rem,4vw,3.4rem)]" style="color:var(--cream)">
+        Welcome back to your <span class="gold-text-anim italic">guest network</span>.
+      </h1>
+      <p class="mt-5 text-lg max-w-md leading-relaxed" style="color:#d8c4cf">
+        Sign in to manage invitations, see who's arriving, and view every guest's relationship to you — in one elegant, private dashboard.
+      </p>
+      <ul class="mt-8 space-y-3.5">
+        <li class="flex items-center gap-3 reveal d2" style="color:#e8d5dd">
+          <span class="w-7 h-7 rounded-full grid place-items-center" style="background:rgba(232,201,135,.18)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#e8c987" stroke-width="2.5"><path d="M20 6 9 17l-5-5"></path></svg></span>
+          Private &amp; secure to your event
+        </li>
+        <li class="flex items-center gap-3 reveal d3" style="color:#e8d5dd">
+          <span class="w-7 h-7 rounded-full grid place-items-center" style="background:rgba(232,201,135,.18)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#e8c987" stroke-width="2.5"><path d="M20 6 9 17l-5-5"></path></svg></span>
+          Live relationship flow for 1,000+ guests
+        </li>
+        <li class="flex items-center gap-3 reveal d4" style="color:#e8d5dd">
+          <span class="w-7 h-7 rounded-full grid place-items-center" style="background:rgba(232,201,135,.18)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#e8c987" stroke-width="2.5"><path d="M20 6 9 17l-5-5"></path></svg></span>
+          No app to install — works on any phone
+        </li>
+      </ul>
+    </div>
+
+    <!-- right: glass auth card -->
+    <div class="glass p-7 sm:p-9 w-full max-w-md mx-auto reveal d1">
+      <div class="relative z-10">
+        <!-- tabs -->
+        <div class="flex p-1 rounded-full mb-7" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12)">
+          <button id="tabSignin" onclick="switchTab('signin')" class="flex-1 py-2.5 rounded-full text-sm font-700 transition" style="background:linear-gradient(135deg,var(--gold),var(--gold-soft));color:#3a2410">Sign in</button>
+          <button id="tabContact" onclick="switchTab('contact')" class="flex-1 py-2.5 rounded-full text-sm font-700 transition" style="color:#e8d5dd">Contact us</button>
+        </div>
+
+        <!-- SIGN IN -->
+        <form id="signinForm" class="space-y-4" novalidate="">
+          <div>
+            <label class="block text-sm font-600 mb-1.5" style="color:#e8d5dd">Email address</label>
+            <input id="emailField" type="email" required="" placeholder="vip@email.com" class="field" autocomplete="email">
+          </div>
+          <div>
+            <label class="block text-sm font-600 mb-1.5" style="color:#e8d5dd">Password</label>
+            <div class="relative">
+              <input id="pw" type="password" required="" placeholder="••••••••" class="field pr-12">
+              <button type="button" onclick="togglePw()" class="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-700" style="color:var(--gold-soft)">Show</button>
+            </div>
+          </div>
+          <div class="flex items-center justify-between text-sm">
+            <label class="flex items-center gap-2 cursor-pointer" style="color:#cbb6c2">
+              <input type="checkbox" class="accent-[#d4a657] w-4 h-4"> Remember me
+            </label>
+            <a id="forgotLink" href="#" class="font-600" style="color:var(--gold-soft)">Forgot?</a>
+          </div>
+          <p id="authError" class="hidden text-sm text-center" style="color:#f87171"></p>
+          <button type="submit" class="btn-glossy w-full font-700 py-3.5 rounded-full mt-1">Sign in to dashboard</button>
+          <div class="flex items-center gap-3 my-1">
+            <span class="flex-1 h-px" style="background:rgba(255,255,255,0.14)"></span>
+            <span class="text-xs" style="color:#a98fa1">or continue with</span>
+            <span class="flex-1 h-px" style="background:rgba(255,255,255,0.14)"></span>
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <button id="btnGoogle" type="button" class="btn-ghost py-2.5 rounded-full text-sm font-600 flex items-center justify-center gap-2">
+              <svg width="16" height="16" viewBox="0 0 24 24"><path fill="#fff" d="M21.35 11.1h-9.18v2.96h5.27c-.23 1.4-1.66 4.1-5.27 4.1-3.17 0-5.76-2.62-5.76-5.86s2.59-5.86 5.76-5.86c1.8 0 3.01.77 3.7 1.43l2.52-2.43C16.96 3.57 14.8 2.6 12.17 2.6 6.97 2.6 2.77 6.8 2.77 12s4.2 9.4 9.4 9.4c5.43 0 9.02-3.82 9.02-9.2 0-.62-.07-1.09-.16-1.1z"></path></svg>Google
+            </button>
+            <button type="button" class="btn-ghost py-2.5 rounded-full text-sm font-600 flex items-center justify-center gap-2">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="#fff"><path d="M16.36 1.43c.04 1.08-.37 2.13-1.06 2.9-.7.79-1.83 1.4-2.94 1.31-.05-1.04.43-2.12 1.07-2.79.72-.76 1.96-1.34 2.93-1.42zM20.5 17.2c-.5 1.17-.74 1.68-1.39 2.7-.9 1.43-2.17 3.2-3.75 3.22-1.4.01-1.76-.92-3.66-.91-1.9.01-2.3.93-3.7.92-1.58-.02-2.78-1.62-3.68-3.04-2.52-3.99-2.78-8.67-1.23-11.16 1.1-1.77 2.84-2.8 4.47-2.8 1.66 0 2.7.92 4.07.92 1.33 0 2.14-.92 4.06-.92 1.45 0 2.99.79 4.08 2.16-3.59 1.97-3 7.09.46 8.91z"></path></svg>Apple
+            </button>
+          </div>
+          <p class="text-center text-sm mt-3" style="color:#cbb6c2">Are you a guest? <a href="/register" class="font-700" style="color:var(--gold-soft)">Scan &amp; register →</a></p>
+        </form>
+
+        <!-- CONTACT -->
+        <form id="contactForm" class="space-y-4 hidden" novalidate="">
+          <p class="text-sm" style="color:#cbb6c2">Planning a grand event? Leave your details and our team will reach out.</p>
+          <div class="grid sm:grid-cols-2 gap-3">
+            <div>
+              <label class="block text-sm font-600 mb-1.5" style="color:#e8d5dd">Full name</label>
+              <input id="cName" type="text" required="" placeholder="Your name" class="field">
+            </div>
+            <div>
+              <label class="block text-sm font-600 mb-1.5" style="color:#e8d5dd">Phone</label>
+              <input id="cPhone" type="tel" placeholder="+91 …" class="field">
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-600 mb-1.5" style="color:#e8d5dd">Email address</label>
+            <input id="cEmail" type="email" required="" placeholder="you@email.com" class="field">
+          </div>
+          <div>
+            <label class="block text-sm font-600 mb-1.5" style="color:#e8d5dd">Event &amp; guest count</label>
+            <input id="cEvent" type="text" placeholder="e.g. Wedding · ~1,200 guests" class="field">
+          </div>
+          <div>
+            <label class="block text-sm font-600 mb-1.5" style="color:#e8d5dd">Message</label>
+            <textarea id="cMessage" rows="3" placeholder="Tell us about your event…" class="field resize-none"></textarea>
+          </div>
+          <button type="submit" class="btn-glossy w-full font-700 py-3.5 rounded-full">Send message</button>
+        </form>
+
+        <!-- success -->
+        <div id="done" class="hidden text-center py-6">
+          <div class="w-16 h-16 mx-auto rounded-full grid place-items-center" style="background:rgba(232,201,135,.18)">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#e8c987" stroke-width="2.5"><path d="M20 6 9 17l-5-5"></path></svg>
+          </div>
+          <h3 class="font-display text-xl font-600 mt-4" style="color:var(--cream)">All set</h3>
+          <p class="text-sm mt-1" style="color:#cbb6c2">Taking you to the VIP dashboard…</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script type="module">
+  import { auth, db } from '/js/firebase-config.js';
+  import {
+    signInWithEmailAndPassword,
+    GoogleAuthProvider,
+    signInWithPopup,
+    sendPasswordResetEmail,
+    onAuthStateChanged
+  } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js';
+  import {
+    addDoc, collection, serverTimestamp
+  } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
+
+  // ── Redirect if already signed in ──────────────────────────────
+  onAuthStateChanged(auth, user => {
+    if (user) window.location.href = '/dashboard';
+  });
+
+  // ── UI helpers (must be global for inline onclick attrs) ────────
+  window.switchTab = function(which) {
+    const si = document.getElementById('tabSignin'), ct = document.getElementById('tabContact');
+    const active = 'linear-gradient(135deg,var(--gold),var(--gold-soft))';
+    const on = which === 'signin';
+    si.style.background = on ? active : 'transparent'; si.style.color = on ? '#3a2410' : '#e8d5dd';
+    ct.style.background = on ? 'transparent' : active; ct.style.color = on ? '#e8d5dd' : '#3a2410';
+    document.getElementById('signinForm').classList.toggle('hidden', !on);
+    document.getElementById('contactForm').classList.toggle('hidden', on);
+    clearError();
+  };
+
+  window.togglePw = function() {
+    const pw = document.getElementById('pw');
+    const btn = event.target;
+    if (pw.type === 'password') { pw.type = 'text'; btn.textContent = 'Hide'; }
+    else { pw.type = 'password'; btn.textContent = 'Show'; }
+  };
+
+  // ── Error / success helpers ─────────────────────────────────────
+  function showError(msg) {
+    document.getElementById('authError').textContent = msg;
+    document.getElementById('authError').classList.remove('hidden');
+  }
+  function clearError() {
+    document.getElementById('authError').classList.add('hidden');
+  }
+
+  function finish() {
+    document.getElementById('signinForm').classList.add('hidden');
+    document.getElementById('contactForm').classList.add('hidden');
+    document.querySelector('.glass .flex.p-1').classList.add('hidden');
+    document.getElementById('done').classList.remove('hidden');
+    setTimeout(() => { window.location.href = '/dashboard'; }, 1200);
+  }
+
+  function friendlyError(code) {
+    const map = {
+      'auth/user-not-found':   'No account found with that email.',
+      'auth/wrong-password':   'Incorrect password.',
+      'auth/invalid-email':    'Please enter a valid email address.',
+      'auth/too-many-requests':'Too many attempts — please wait a moment.',
+      'auth/invalid-credential':'Email or password is incorrect.',
+      'auth/popup-closed-by-user': 'Sign-in popup closed. Please try again.',
+    };
+    return map[code] || 'Something went wrong. Please try again.';
+  }
+
+  // ── Email / password sign-in ─────────────────────────────────────
+  document.getElementById('signinForm').addEventListener('submit', async e => {
+    e.preventDefault();
+    clearError();
+    const btn = e.target.querySelector('button[type=submit]');
+    btn.textContent = 'Signing in…'; btn.disabled = true;
+    try {
+      await signInWithEmailAndPassword(auth,
+        document.getElementById('emailField').value.trim(),
+        document.getElementById('pw').value);
+      finish();
+    } catch(err) {
+      showError(friendlyError(err.code));
+      btn.textContent = 'Sign in to dashboard'; btn.disabled = false;
+    }
+  });
+
+  // ── Google sign-in ──────────────────────────────────────────────
+  document.getElementById('btnGoogle').addEventListener('click', async () => {
+    clearError();
+    try {
+      await signInWithPopup(auth, new GoogleAuthProvider());
+      finish();
+    } catch(err) {
+      if (err.code !== 'auth/popup-closed-by-user') showError(friendlyError(err.code));
+    }
+  });
+
+  // ── Apple (placeholder) ─────────────────────────────────────────
+  document.getElementById('btnApple').addEventListener('click', () => {
+    showError('Apple sign-in coming soon.');
+  });
+
+  // ── Forgot password ─────────────────────────────────────────────
+  document.getElementById('forgotLink').addEventListener('click', async e => {
+    e.preventDefault();
+    clearError();
+    const email = document.getElementById('emailField').value.trim();
+    if (!email) { showError('Enter your email above first.'); return; }
+    try {
+      await sendPasswordResetEmail(auth, email);
+      showError('✓ Reset link sent — check your inbox.');
+    } catch(err) {
+      showError(friendlyError(err.code));
+    }
+  });
+
+  // ── Contact form ────────────────────────────────────────────────
+  document.getElementById('contactForm').addEventListener('submit', async e => {
+    e.preventDefault();
+    const btn = e.target.querySelector('button[type=submit]');
+    btn.textContent = 'Sending…'; btn.disabled = true;
+    try {
+      await addDoc(collection(db, 'contacts'), {
+        name:    document.getElementById('cName').value.trim(),
+        phone:   document.getElementById('cPhone').value.trim(),
+        email:   document.getElementById('cEmail').value.trim(),
+        event:   document.getElementById('cEvent').value.trim(),
+        message: document.getElementById('cMessage').value.trim(),
+        submittedAt: serverTimestamp()
+      });
+      finish();
+    } catch(err) {
+      console.error(err);
+      btn.textContent = 'Try again'; btn.disabled = false;
+    }
+  });
+</script>
+  <script src="/js/livebg.js"></script>
+
+</body></html>

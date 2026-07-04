@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RelatiQR — Know every guest, instantly</title>
+  <link rel="stylesheet" href="/css/theme.css">
+<script src="https://cdn.moda.app/runtime-libs/tailwind-browser-4.1.13-index.global.min.js"></script><style data-moda-export-fonts="true">@font-face { font-family: 'Manrope'; src: url("../fonts/manrope-wght--extralight.ttf") format("truetype"); font-style: normal; font-weight: 200; font-display: swap; }
+@font-face { font-family: 'Manrope'; src: url("../fonts/manrope-wght--light.ttf") format("truetype"); font-style: normal; font-weight: 300; font-display: swap; }
+@font-face { font-family: 'Manrope'; src: url("../fonts/manrope-wght--regular.ttf") format("truetype"); font-style: normal; font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Manrope'; src: url("../fonts/manrope-wght--medium.ttf") format("truetype"); font-style: normal; font-weight: 500; font-display: swap; }
+@font-face { font-family: 'Manrope'; src: url("../fonts/manrope-wght--semibold.ttf") format("truetype"); font-style: normal; font-weight: 600; font-display: swap; }
+@font-face { font-family: 'Manrope'; src: url("../fonts/manrope-wght--bold.ttf") format("truetype"); font-style: normal; font-weight: 700; font-display: swap; }
+@font-face { font-family: 'Manrope'; src: url("../fonts/manrope-wght--extrabold.ttf") format("truetype"); font-style: normal; font-weight: 800; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../fonts/fraunces-soft-wonk-opsz-wght--blackitalic.ttf") format("truetype"); font-style: italic; font-weight: 900; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../fonts/fraunces-soft-wonk-opsz-wght--thin.ttf") format("truetype"); font-style: normal; font-weight: 100; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../fonts/fraunces-soft-wonk-opsz-wght--thinitalic.ttf") format("truetype"); font-style: italic; font-weight: 100; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../fonts/fraunces-soft-wonk-opsz-wght--extralight.ttf") format("truetype"); font-style: normal; font-weight: 200; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../fonts/fraunces-soft-wonk-opsz-wght--extralightitalic.ttf") format("truetype"); font-style: italic; font-weight: 200; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../fonts/fraunces-soft-wonk-opsz-wght--light.ttf") format("truetype"); font-style: normal; font-weight: 300; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../fonts/fraunces-soft-wonk-opsz-wght--lightitalic.ttf") format("truetype"); font-style: italic; font-weight: 300; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../fonts/fraunces-soft-wonk-opsz-wght--regular.ttf") format("truetype"); font-style: normal; font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../fonts/fraunces-soft-wonk-opsz-wght--italic.ttf") format("truetype"); font-style: italic; font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../fonts/fraunces-soft-wonk-opsz-wght--medium.ttf") format("truetype"); font-style: normal; font-weight: 500; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../fonts/fraunces-soft-wonk-opsz-wght--mediumitalic.ttf") format("truetype"); font-style: italic; font-weight: 500; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../fonts/fraunces-soft-wonk-opsz-wght--semibold.ttf") format("truetype"); font-style: normal; font-weight: 600; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../fonts/fraunces-soft-wonk-opsz-wght--semibolditalic.ttf") format("truetype"); font-style: italic; font-weight: 600; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../fonts/fraunces-soft-wonk-opsz-wght--bold.ttf") format("truetype"); font-style: normal; font-weight: 700; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../fonts/fraunces-soft-wonk-opsz-wght--bolditalic.ttf") format("truetype"); font-style: italic; font-weight: 700; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../fonts/fraunces-soft-wonk-opsz-wght--extrabold.ttf") format("truetype"); font-style: normal; font-weight: 800; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../fonts/fraunces-soft-wonk-opsz-wght--extrabolditalic.ttf") format("truetype"); font-style: italic; font-weight: 800; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../fonts/fraunces-soft-wonk-opsz-wght--black.ttf") format("truetype"); font-style: normal; font-weight: 900; font-display: swap; }</style></head>
+<body class="overflow-x-hidden">
+
+  <!-- NAV -->
+  <header class="absolute top-0 inset-x-0 z-30">
+    <nav class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2.5">
+        <span class="w-9 h-9 rounded-xl grid place-items-center" style="background:linear-gradient(135deg,var(--gold),var(--gold-soft))">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3a2410" stroke-width="2"><circle cx="7" cy="7" r="3"></circle><circle cx="17" cy="17" r="3"></circle><path d="M10 7h7v7"></path></svg>
+        </span>
+        <span class="font-display text-xl font-600" style="color:var(--cream)">RelatiQR</span>
+      </a>
+      <div class="hidden md:flex items-center gap-8 text-sm font-600">
+        <a href="#how" class="nav-link">How it works</a>
+        <a href="#features" class="nav-link">Features</a>
+        <a href="/dashboard" class="nav-link">VIP Dashboard</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="/login" class="nav-link text-sm font-700 hidden sm:inline px-3">Sign in</a>
+        <a href="/register" class="btn-glossy text-sm font-700 px-5 py-2.5 rounded-full">Try the demo</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section data-livebg-host="" data-bg="dark" class="relative min-h-[100svh] flex items-center overflow-hidden" style="background:radial-gradient(120% 90% at 80% 0%, var(--wine) 0%, var(--plum-900) 45%, var(--plum-950) 100%)">
+    <!-- ambient aurora glows -->
+    <div class="aurora aurora-anim" style="width:520px;height:520px;background:#7a2a55;top:-180px;left:-140px"></div>
+    <div class="aurora aurora-anim" style="width:420px;height:420px;background:#d4a657;bottom:-160px;right:8%;opacity:.32;animation-delay:-6s"></div>
+    <!-- decorative network -->
+    <svg class="absolute right-0 top-0 h-full w-1/2 opacity-30 hidden lg:block" viewBox="0 0 500 600" fill="none">
+      <g stroke="var(--gold-soft)" stroke-width="1">
+        <line x1="250" y1="300" x2="120" y2="150"></line><line x1="250" y1="300" x2="400" y2="130"></line>
+        <line x1="250" y1="300" x2="110" y2="450"></line><line x1="250" y1="300" x2="420" y2="470"></line>
+        <line x1="250" y1="300" x2="250" y2="90"></line><line x1="120" y1="150" x2="60" y2="60"></line>
+        <line x1="400" y1="130" x2="460" y2="60"></line><line x1="110" y1="450" x2="60" y2="540"></line>
+        <line x1="420" y1="470" x2="470" y2="560"></line>
+      </g>
+      <g fill="var(--gold)">
+        <circle cx="120" cy="150" r="6"></circle><circle cx="400" cy="130" r="6"></circle><circle cx="110" cy="450" r="6"></circle>
+        <circle cx="420" cy="470" r="6"></circle><circle cx="250" cy="90" r="5"></circle><circle cx="60" cy="60" r="4"></circle>
+        <circle cx="460" cy="60" r="4"></circle><circle cx="60" cy="540" r="4"></circle><circle cx="470" cy="560" r="4"></circle>
+      </g>
+      <circle cx="250" cy="300" r="14" fill="var(--gold)"></circle>
+    </svg>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-6 pt-28 pb-16 grid lg:grid-cols-[1.1fr,0.9fr] gap-12 items-center w-full">
+      <div>
+        <span class="tag reveal">For weddings &amp; grand events</span>
+        <h1 class="font-display font-600 text-[clamp(2.6rem,6vw,4.6rem)] leading-[1.02] mt-5 reveal d1" style="color:var(--cream)">
+          Know <span class="gold-text-anim italic">every guest</span><br>the moment they arrive.
+        </h1>
+        <p class="mt-6 text-lg max-w-xl leading-relaxed reveal d2" style="color:#e8d5dd">
+          You sent out a thousand cards. But when guests arrive, you can't recall how each one is related to you. RelatiQR puts a QR code on every invitation — guests scan it, tell you how they're connected, and you see the whole family network in one beautiful flow.
+        </p>
+        <div class="mt-9 flex flex-wrap gap-4 reveal d3">
+          <a href="/register" class="btn-glossy font-700 px-7 py-3.5 rounded-full">Scan &amp; register (guest)</a>
+          <a href="/login" class="btn-ghost font-700 px-7 py-3.5 rounded-full">VIP sign in</a>
+        </div>
+        <div class="mt-10 flex items-center gap-6 text-sm reveal d4" style="color:#cdb4c0">
+          <div><span class="font-display text-2xl gold-text font-600">1,000+</span><br>guests mapped</div>
+          <div class="w-px h-9" style="background:rgba(255,255,255,.2)"></div>
+          <div><span class="font-display text-2xl gold-text font-600">1 scan</span><br>to connect</div>
+          <div class="w-px h-9" style="background:rgba(255,255,255,.2)"></div>
+          <div><span class="font-display text-2xl gold-text font-600">Zero</span><br>awkward moments</div>
+        </div>
+      </div>
+
+      <!-- phone mock -->
+      <div class="relative mx-auto floaty reveal d3">
+        <div class="w-[280px] rounded-[2.4rem] p-3" style="background:rgba(15,7,18,0.55);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.18);box-shadow:0 40px 80px -30px rgba(0,0,0,.8), inset 0 1px 0 rgba(255,255,255,.2)">
+          <div class="rounded-[1.9rem] overflow-hidden" style="background:var(--cream)">
+            <div class="px-5 pt-6 pb-5 text-center" style="background:linear-gradient(135deg,var(--wine),var(--plum-800))">
+              <p class="text-xs font-700 tracking-widest" style="color:var(--gold-soft)">YOU SCANNED</p>
+              <p class="font-display text-xl mt-1" style="color:var(--cream)">Ananya Sharma</p>
+              <span class="inline-block mt-2 text-xs font-700 px-3 py-1 rounded-full" style="background:var(--gold);color:#3a2410">Bride's cousin</span>
+            </div>
+            <div class="p-4 space-y-3 text-left">
+              <p class="text-xs font-700 tracking-wider" style="color:var(--muted)">RELATION PATH</p>
+              <div class="text-sm font-600" style="color:var(--ink)">You → Sister (Meera) → Daughter (Ananya)</div>
+              <div class="h-px" style="background:var(--line)"></div>
+              <p class="text-xs font-700 tracking-wider" style="color:var(--muted)">ARRIVING WITH</p>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="text-xs px-2 py-1 rounded-md" style="background:var(--blush);color:var(--wine)">Husband · Rohit</span>
+                <span class="text-xs px-2 py-1 rounded-md" style="background:var(--blush);color:var(--wine)">Son · Aarav</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="max-w-5xl mx-auto px-6 py-20 text-center">
+    <span class="tag">The problem</span>
+    <h2 class="font-display text-3xl md:text-4xl font-600 mt-4" style="color:var(--plum-900)">"I invited them… but who are they to me?"</h2>
+    <p class="mt-4 text-lg max-w-2xl mx-auto" style="color:var(--muted)">
+      Big families, distant cousins, friends-of-friends. At a 1,000-guest wedding, no host can remember every face — or how each guest connects to them. So greetings feel awkward, and real relationships go unrecognised.
+    </p>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how" class="py-20" style="background:#fff">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-14">
+        <span class="tag">How it works</span>
+        <h2 class="font-display text-3xl md:text-4xl font-600 mt-4" style="color:var(--plum-900)">Three simple steps</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="card p-8">
+          <div class="w-12 h-12 rounded-xl grid place-items-center font-display text-xl font-700" style="background:var(--blush);color:var(--wine)">1</div>
+          <h3 class="font-display text-xl font-600 mt-5" style="color:var(--plum-900)">QR on every card</h3>
+          <p class="mt-2" style="color:var(--muted)">Each invitation carries a unique QR code. The guest scans it with any phone camera — no app to install.</p>
+        </div>
+        <div class="card p-8">
+          <div class="w-12 h-12 rounded-xl grid place-items-center font-display text-xl font-700" style="background:var(--blush);color:var(--wine)">2</div>
+          <h3 class="font-display text-xl font-600 mt-5" style="color:var(--plum-900)">Guest tells their relation</h3>
+          <p class="mt-2" style="color:var(--muted)">They enter who they are, how they're related to you, and which family members are coming along.</p>
+        </div>
+        <div class="card p-8">
+          <div class="w-12 h-12 rounded-xl grid place-items-center font-display text-xl font-700" style="background:var(--blush);color:var(--wine)">3</div>
+          <h3 class="font-display text-xl font-600 mt-5" style="color:var(--plum-900)">You see the whole network</h3>
+          <p class="mt-2" style="color:var(--muted)">Every guest appears in a live relationship flow diagram, grouped by family branch — instantly clear.</p>
+        </div>
+      </div>
+      <div class="text-center mt-12">
+        <a href="/register" class="btn-glossy font-700 px-8 py-3.5 rounded-full">Walk through the demo →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features" class="py-20">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-14">
+        <span class="tag">Features</span>
+        <h2 class="font-display text-3xl md:text-4xl font-600 mt-4" style="color:var(--plum-900)">Built for grand celebrations</h2>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="card p-7"><h3 class="font-display text-lg font-600" style="color:var(--wine)">Personalised relationship</h3><p class="mt-2 text-sm" style="color:var(--muted)">Guests log in and describe exactly how they connect to the VIP — cousin, in-law, colleague, neighbour.</p></div>
+        <div class="card p-7"><h3 class="font-display text-lg font-600" style="color:var(--wine)">Family flow diagram</h3><p class="mt-2 text-sm" style="color:var(--muted)">A cool, interactive network shows every branch of the family at a glance.</p></div>
+        <div class="card p-7"><h3 class="font-display text-lg font-600" style="color:var(--wine)">Bring-along guests</h3><p class="mt-2 text-sm" style="color:var(--muted)">Each guest lists the family members arriving with them, so head counts stay accurate.</p></div>
+        <div class="card p-7"><h3 class="font-display text-lg font-600" style="color:var(--wine)">Works on any phone</h3><p class="mt-2 text-sm" style="color:var(--muted)">A web link opens straight from the QR — no downloads, works on iPhone &amp; Android.</p></div>
+        <div class="card p-7"><h3 class="font-display text-lg font-600" style="color:var(--wine)">Scales to thousands</h3><p class="mt-2 text-sm" style="color:var(--muted)">Designed for 1,000+ guest events without losing a single connection.</p></div>
+        <div class="card p-7"><h3 class="font-display text-lg font-600" style="color:var(--wine)">Door-side scanning</h3><p class="mt-2 text-sm" style="color:var(--muted)">Staff at the entrance scan a guest's pass and greet them by name and relationship.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="rounded-[2rem] p-10 md:p-14 text-center" style="background:radial-gradient(120% 120% at 50% 0%, var(--wine), var(--plum-900));box-shadow:var(--shadow-lg)">
+        <h2 class="font-display text-3xl md:text-4xl font-600" style="color:var(--cream)">Try the full prototype</h2>
+        <p class="mt-3 max-w-xl mx-auto" style="color:#e8d5dd">Walk through every screen — register as a guest, see your QR pass, then open the VIP dashboard.</p>
+        <div class="mt-8 flex flex-wrap gap-4 justify-center">
+          <a href="/register" class="btn-glossy font-700 px-7 py-3.5 rounded-full">Start as a guest</a>
+          <a href="/login" class="btn-ghost font-700 px-7 py-3.5 rounded-full">VIP sign in</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-10 text-center text-sm" style="color:var(--muted)">
+    <p class="font-display text-lg" style="color:var(--plum-900)">RelatiQR</p>
+    <p class="mt-1">A prototype concept · Know every guest, instantly.</p>
+  </footer>
+
+  <script>
+    // Smooth scroll-reveal — elements fade up as they enter view
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: .15 });
+    document.querySelectorAll('[data-reveal]').forEach((el,i)=>{
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(28px)';
+      el.style.transition = 'opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1)';
+      el.style.transitionDelay = (i % 3) * 0.1 + 's';
+      io.observe(el);
+    });
+    const style = document.createElement('style');
+    style.textContent = '[data-reveal].in{opacity:1!important;transform:none!important}';
+    document.head.appendChild(style);
+  </script>
+  <script src="/js/livebg.js"></script>
+
+
+</body></html>

@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VIP Dashboard — RelatiQR</title>
+  <link rel="stylesheet" href="/css/theme.css">
+  <style>
+    .node-guest { cursor:pointer; }
+    .node-guest:hover { filter: drop-shadow(0 0 6px var(--gold)); }
+    .legend-dot { width:.7rem;height:.7rem;border-radius:999px;display:inline-block; }
+    .event-card { cursor:pointer; transition:transform .2s,box-shadow .2s; }
+    .event-card:hover { transform:translateY(-2px); }
+    .event-card.active { border-color:var(--gold) !important; box-shadow:0 0 0 2px rgba(212,166,87,.35); }
+  </style>
+<script src="https://cdn.moda.app/runtime-libs/tailwind-browser-4.1.13-index.global.min.js"></script><style data-moda-export-fonts="true">@font-face { font-family: 'Manrope'; src: url("../../fonts/manrope-wght--extralight.ttf") format("truetype"); font-style: normal; font-weight: 200; font-display: swap; }
+@font-face { font-family: 'Manrope'; src: url("../../fonts/manrope-wght--light.ttf") format("truetype"); font-style: normal; font-weight: 300; font-display: swap; }
+@font-face { font-family: 'Manrope'; src: url("../../fonts/manrope-wght--regular.ttf") format("truetype"); font-style: normal; font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Manrope'; src: url("../../fonts/manrope-wght--medium.ttf") format("truetype"); font-style: normal; font-weight: 500; font-display: swap; }
+@font-face { font-family: 'Manrope'; src: url("../../fonts/manrope-wght--semibold.ttf") format("truetype"); font-style: normal; font-weight: 600; font-display: swap; }
+@font-face { font-family: 'Manrope'; src: url("../../fonts/manrope-wght--bold.ttf") format("truetype"); font-style: normal; font-weight: 700; font-display: swap; }
+@font-face { font-family: 'Manrope'; src: url("../../fonts/manrope-wght--extrabold.ttf") format("truetype"); font-style: normal; font-weight: 800; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../../fonts/fraunces-soft-wonk-opsz-wght--blackitalic.ttf") format("truetype"); font-style: italic; font-weight: 900; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../../fonts/fraunces-soft-wonk-opsz-wght--thin.ttf") format("truetype"); font-style: normal; font-weight: 100; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../../fonts/fraunces-soft-wonk-opsz-wght--thinitalic.ttf") format("truetype"); font-style: italic; font-weight: 100; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../../fonts/fraunces-soft-wonk-opsz-wght--extralight.ttf") format("truetype"); font-style: normal; font-weight: 200; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../../fonts/fraunces-soft-wonk-opsz-wght--extralightitalic.ttf") format("truetype"); font-style: italic; font-weight: 200; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../../fonts/fraunces-soft-wonk-opsz-wght--light.ttf") format("truetype"); font-style: normal; font-weight: 300; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../../fonts/fraunces-soft-wonk-opsz-wght--lightitalic.ttf") format("truetype"); font-style: italic; font-weight: 300; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../../fonts/fraunces-soft-wonk-opsz-wght--regular.ttf") format("truetype"); font-style: normal; font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../../fonts/fraunces-soft-wonk-opsz-wght--italic.ttf") format("truetype"); font-style: italic; font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../../fonts/fraunces-soft-wonk-opsz-wght--medium.ttf") format("truetype"); font-style: normal; font-weight: 500; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../../fonts/fraunces-soft-wonk-opsz-wght--mediumitalic.ttf") format("truetype"); font-style: italic; font-weight: 500; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../../fonts/fraunces-soft-wonk-opsz-wght--semibold.ttf") format("truetype"); font-style: normal; font-weight: 600; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../../fonts/fraunces-soft-wonk-opsz-wght--semibolditalic.ttf") format("truetype"); font-style: italic; font-weight: 600; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../../fonts/fraunces-soft-wonk-opsz-wght--bold.ttf") format("truetype"); font-style: normal; font-weight: 700; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../../fonts/fraunces-soft-wonk-opsz-wght--bolditalic.ttf") format("truetype"); font-style: italic; font-weight: 700; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../../fonts/fraunces-soft-wonk-opsz-wght--extrabold.ttf") format("truetype"); font-style: normal; font-weight: 800; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../../fonts/fraunces-soft-wonk-opsz-wght--extrabolditalic.ttf") format("truetype"); font-style: italic; font-weight: 800; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../../fonts/fraunces-soft-wonk-opsz-wght--black.ttf") format("truetype"); font-style: normal; font-weight: 900; font-display: swap; }</style></head>
+<body class="min-h-screen" style="background:var(--cream)">
+
+  <!-- top bar -->
+  <header style="background:linear-gradient(135deg,var(--plum-900),var(--wine))">
+    <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2.5">
+        <span class="w-9 h-9 rounded-xl grid place-items-center" style="background:linear-gradient(135deg,var(--gold),var(--gold-soft))">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3a2410" stroke-width="2"><circle cx="7" cy="7" r="3"/><circle cx="17" cy="17" r="3"/><path d="M10 7h7v7"/></svg>
+        </span>
+        <span class="font-display text-xl font-600" style="color:var(--cream)">RelatiQR</span>
+      </a>
+      <div class="flex items-center gap-4">
+        <button id="copyInviteBtn" onclick="copyInviteLink()"
+                class="nav-link text-sm font-600 hidden sm:inline-block"
+                style="background:none;border:none;cursor:pointer;display:none!important">📋 Invite Link</button>
+        <button onclick="doSignOut()"
+                class="nav-link text-sm font-600 hidden sm:inline"
+                style="background:none;border:none;cursor:pointer">Sign out</button>
+        <span id="userBadge"
+              class="text-xs font-700 px-3 py-1.5 rounded-full"
+              style="background:rgba(255,255,255,.12);color:var(--gold-soft);border:1px solid rgba(232,201,135,.3)">VIP</span>
+      </div>
+    </nav>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-6 py-8">
+
+    <!-- Page title -->
+    <div class="flex flex-wrap items-end justify-between gap-4">
+      <div>
+        <span class="tag">VIP Dashboard</span>
+        <h1 class="font-display text-3xl md:text-4xl font-600 mt-3" style="color:var(--plum-900)">Your guest relationship map</h1>
+        <p class="mt-1" style="color:var(--muted)">Live view of everyone who registered for your event.</p>
+      </div>
+      <button id="createEventBtn" onclick="openCreateEvent()"
+              class="btn-outline text-sm font-700 px-5 py-2.5 rounded-full whitespace-nowrap">
+        + New Event
+      </button>
+    </div>
+
+    <!-- Event selector (populated by JS) -->
+    <div class="mt-5 grid sm:grid-cols-2 lg:grid-cols-3 gap-3" id="eventList">
+      <div class="glass-light px-5 py-4 rounded-2xl animate-pulse" style="height:80px"></div>
+    </div>
+
+    <!-- Invite link bar (shown when event is active) -->
+    <div id="inviteBar" class="hidden mt-4 flex items-center gap-3 px-4 py-3 rounded-2xl"
+         style="background:#fff;border:1px solid var(--line)">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--plum-700)" stroke-width="2.5">
+        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+      </svg>
+      <span class="text-sm font-600 flex-1 truncate" id="inviteLinkText" style="color:var(--plum-900)">—</span>
+      <button onclick="copyInviteLink()"
+              class="text-xs font-700 px-3 py-1.5 rounded-full whitespace-nowrap"
+              style="background:linear-gradient(135deg,var(--gold),var(--gold-soft));color:#3a2410">
+        Copy link
+      </button>
+    </div>
+
+    <!-- No-event placeholder -->
+    <div id="noEventMsg" class="mt-8 text-center py-16 rounded-3xl"
+         style="border:1px dashed var(--line)">
+      <div class="text-5xl mb-4">🗓️</div>
+      <p class="font-display text-xl font-600" style="color:var(--plum-900)">Select or create an event</p>
+      <p class="mt-2 text-sm" style="color:var(--muted)">Your guest network appears once you pick an event above.</p>
+    </div>
+
+    <!-- Event content (stats + network + list) — hidden until event picked -->
+    <div id="eventContent" class="hidden">
+
+      <!-- stats -->
+      <div id="stats" class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-7"></div>
+
+      <!-- flow diagram -->
+      <section data-livebg-host="" data-bg="dark"
+               class="relative overflow-hidden p-4 sm:p-6 mt-7"
+               style="border-radius:26px;background:linear-gradient(160deg,#2a1230,#160817);box-shadow:0 30px 70px -28px rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.1)">
+        <div class="aurora aurora-anim" style="width:340px;height:340px;background:#7a2a55;top:-120px;right:-80px;opacity:.4"></div>
+        <div class="relative z-10 flex items-center justify-between mb-3">
+          <h2 class="font-display text-xl font-600" style="color:var(--cream)">Relationship flow</h2>
+          <div id="legend" class="hidden sm:flex flex-wrap gap-3 text-xs font-600" style="color:#cbb6c2"></div>
+        </div>
+        <div class="relative z-10 overflow-x-auto">
+          <svg id="net" viewBox="0 0 900 640" class="w-full" style="min-width:680px;height:auto"></svg>
+        </div>
+        <div id="detail" class="hidden mt-2 p-4 rounded-xl" style="background:var(--blush)"></div>
+      </section>
+
+      <!-- guest list -->
+      <section class="mt-7">
+        <h2 class="font-display text-xl font-600 mb-3" style="color:var(--plum-900)">All guests</h2>
+        <div id="guestList" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+      </section>
+
+    </div><!-- /eventContent -->
+  </main>
+
+  <!-- Create Event Modal -->
+  <div id="createModal" class="hidden fixed inset-0 z-50 flex items-center justify-center px-4"
+       style="background:rgba(0,0,0,.55);backdrop-filter:blur(4px)" onclick="if(event.target===this)closeCreateEvent()">
+    <div class="card p-7 sm:p-9 w-full max-w-md">
+      <h2 class="font-display text-2xl font-600" style="color:var(--plum-900)">Create a new event</h2>
+      <p class="mt-1 text-sm" style="color:var(--muted)">Guests will register via the invite link you share.</p>
+      <div class="mt-5 space-y-4">
+        <div>
+          <label class="block text-sm font-700 mb-1.5" style="color:var(--plum-800)">Event name</label>
+          <input id="evName" type="text" placeholder="e.g. Priya & Aarav's Wedding"
+                 class="w-full px-4 py-3 rounded-xl outline-none"
+                 style="border:1px solid var(--line);background:#fff">
+        </div>
+        <div>
+          <label class="block text-sm font-700 mb-1.5" style="color:var(--plum-800)">Short description (optional)</label>
+          <input id="evDesc" type="text" placeholder="e.g. Reception · ~800 guests"
+                 class="w-full px-4 py-3 rounded-xl outline-none"
+                 style="border:1px solid var(--line);background:#fff">
+        </div>
+        <p id="createError" class="hidden text-sm" style="color:#dc2626"></p>
+        <div class="flex gap-3 pt-1">
+          <button id="createSubmitBtn" onclick="submitCreateEvent()"
+                  class="btn-gold font-700 px-6 py-3 rounded-full flex-1">Create Event</button>
+          <button onclick="closeCreateEvent()"
+                  class="btn-outline font-700 px-6 py-3 rounded-full">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { auth, db } from '/js/firebase-config.js';
+    import {
+      onAuthStateChanged, signOut
+    } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js';
+    import {
+      collection, addDoc, query, where, orderBy,
+      onSnapshot, serverTimestamp
+    } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
+
+    // ── Colour palette per relationship type ──────────────────────
+    const COLORS = {
+      'Cousin':'#7a2a55','Uncle / Aunt':'#9b3d6a','Nephew / Niece':'#c45b7c',
+      'Brother / Sister':'#5a2f6e','In-law':'#b06a3c','Grandparent':'#8a5a2b',
+      'Friend':'#3f7a6d','Family friend':'#2f6f8f','Colleague':'#4a5a9b',
+      'Neighbour':'#7a7a3a','Business associate':'#555','Other':'#888'
+    };
+    const colorFor = t => COLORS[t] || '#888';
+
+    // ── State ─────────────────────────────────────────────────────
+    let currentUser  = null;
+    let selectedEvent = null;   // { id, name, hostName }
+    let guestUnsub   = null;    // Firestore real-time unsubscribe handle
+    let myEvents     = [];
+
+    // ── Auth guard ────────────────────────────────────────────────
+    onAuthStateChanged(auth, user => {
+      if (!user) {
+        window.location.href = '/login';
+        return;
+      }
+      currentUser = user;
+      const displayName = user.displayName || user.email.split('@')[0];
+      document.getElementById('userBadge').textContent = 'VIP · ' + displayName;
+      loadMyEvents();
+    });
+
+    // ── Sign out (exposed globally for onclick) ───────────────────
+    window.doSignOut = async function() {
+      await signOut(auth);
+      window.location.href = '/login';
+    };
+
+    // ── Load host's events ────────────────────────────────────────
+    function loadMyEvents() {
+      const q = query(
+        collection(db, 'events'),
+        where('hostUid', '==', currentUser.uid),
+        orderBy('createdAt', 'desc')
+      );
+
+      onSnapshot(q, snap => {
+        myEvents = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+        renderEventList();
+        // If a selected event was deleted externally, deselect
+        if (selectedEvent && !myEvents.find(e => e.id === selectedEvent.id)) {
+          selectEvent(null);
+        }
+      });
+    }
+
+    // ── Render event cards ────────────────────────────────────────
+    function renderEventList() {
+      const el = document.getElementById('eventList');
+      if (!myEvents.length) {
+        el.innerHTML = `
+          <div class="glass-light px-5 py-4 rounded-2xl col-span-full text-center" style="color:var(--muted)">
+            <p class="text-sm">No events yet.</p>
+            <p class="text-xs mt-0.5">Click <strong>+ New Event</strong> to create your first one.</p>
+          </div>`;
+        return;
+      }
+      el.innerHTML = myEvents.map(ev => `
+        <div class="event-card glass-light px-5 py-4 rounded-2xl"
+             style="border:1.5px solid ${selectedEvent && selectedEvent.id === ev.id ? 'var(--gold)' : 'var(--line)'};
+                    ${selectedEvent && selectedEvent.id === ev.id ? 'box-shadow:0 0 0 2px rgba(212,166,87,.25)' : ''}"
+             onclick="selectEvent(${JSON.stringify(ev).replace(/'/g,"&#39;")})">
+          <p class="font-display text-base font-600" style="color:var(--plum-900)">${ev.name}</p>
+          ${ev.description ? `<p class="text-xs mt-0.5" style="color:var(--muted)">${ev.description}</p>` : ''}
+        </div>`).join('');
+    }
+
+    // ── Select an event ───────────────────────────────────────────
+    window.selectEvent = function(ev) {
+      // Unsubscribe previous guest listener
+      if (guestUnsub) { guestUnsub(); guestUnsub = null; }
+
+      selectedEvent = ev;
+      renderEventList();  // refresh highlighting
+
+      const content = document.getElementById('eventContent');
+      const noMsg   = document.getElementById('noEventMsg');
+      const bar     = document.getElementById('inviteBar');
+
+      if (!ev) {
+        content.classList.add('hidden');
+        noMsg.classList.remove('hidden');
+        bar.classList.add('hidden');
+        return;
+      }
+
+      // Show invite link
+      const baseUrl = window.location.origin;
+      const inviteUrl = `${baseUrl}/register?event=${ev.id}`;
+      document.getElementById('inviteLinkText').textContent = inviteUrl;
+      bar.classList.remove('hidden');
+
+      // Show content panel, start real-time listener
+      noMsg.classList.add('hidden');
+      content.classList.remove('hidden');
+      document.getElementById('detail').classList.add('hidden');
+
+      guestUnsub = onSnapshot(
+        query(collection(db, 'events', ev.id, 'guests'), orderBy('registeredAt', 'asc')),
+        snap => {
+          const guests = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+          render(guests, ev);
+        }
+      );
+    };
+
+    // ── Copy invite link ──────────────────────────────────────────
+    window.copyInviteLink = function() {
+      const link = document.getElementById('inviteLinkText').textContent;
+      navigator.clipboard.writeText(link).then(() => {
+        const btn = event.target;
+        const orig = btn.textContent;
+        btn.textContent = '✓ Copied!';
+        setTimeout(() => btn.textContent = orig, 2000);
+      });
+    };
+
+    // ── Create event modal ────────────────────────────────────────
+    window.openCreateEvent = function() {
+      document.getElementById('createModal').classList.remove('hidden');
+      document.getElementById('evName').focus();
+    };
+    window.closeCreateEvent = function() {
+      document.getElementById('createModal').classList.add('hidden');
+      document.getElementById('createError').classList.add('hidden');
+      document.getElementById('evName').value = '';
+      document.getElementById('evDesc').value = '';
+    };
+    window.submitCreateEvent = async function() {
+      const name = document.getElementById('evName').value.trim();
+      const desc = document.getElementById('evDesc').value.trim();
+      const errEl = document.getElementById('createError');
+      if (!name) { errEl.textContent = 'Please enter an event name.'; errEl.classList.remove('hidden'); return; }
+
+      const btn = document.getElementById('createSubmitBtn');
+      btn.textContent = 'Creating…'; btn.disabled = true;
+      try {
+        const ref = await addDoc(collection(db, 'events'), {
+          name,
+          description: desc,
+          hostUid:  currentUser.uid,
+          hostName: currentUser.displayName || currentUser.email,
+          createdAt: serverTimestamp()
+        });
+        closeCreateEvent();
+        // Auto-select the new event (listener will fire with updated list)
+        selectedEvent = { id: ref.id, name, description: desc };
+      } catch(err) {
+        console.error(err);
+        errEl.textContent = 'Failed to create event. Please try again.';
+        errEl.classList.remove('hidden');
+      }
+      btn.textContent = 'Create Event'; btn.disabled = false;
+    };
+
+    // ── Render stats + network + list ─────────────────────────────
+    function render(guests, ev) {
+      const totalFamily = guests.reduce((s, g) => s + (g.family ? g.family.length : 0), 0);
+      const types = [...new Set(guests.map(g => g.relationType))];
+
+      // Stats
+      document.getElementById('stats').innerHTML = [
+        ['Guests registered',     guests.length],
+        ['Relationship types',    types.length],
+        ['Family members joining', totalFamily],
+        ['Total expected',        guests.length + totalFamily],
+      ].map(([l, v]) =>
+        `<div class="glass-light p-5">
+           <div class="font-display text-3xl font-700 gold-text">${v}</div>
+           <div class="text-sm mt-1" style="color:var(--muted)">${l}</div>
+         </div>`
+      ).join('');
+
+      // Legend
+      document.getElementById('legend').innerHTML = types.map(t =>
+        `<span class="flex items-center gap-1.5">
+           <span class="legend-dot" style="background:${colorFor(t)}"></span>${t}
+         </span>`
+      ).join('');
+
+      drawNetwork(guests, types, ev);
+      drawList(guests);
+    }
+
+    // ── Relationship network diagram ──────────────────────────────
+    function drawNetwork(guests, types, ev) {
+      const svg = document.getElementById('net');
+      const cx = 450, cy = 320;
+      let s = '';
+
+      const byType = {};
+      types.forEach(t => byType[t] = []);
+      guests.forEach(g => byType[g.relationType].push(g));
+
+      const tCount = types.length;
+      const ringT  = 150;
+      const ringG  = 285;
+
+      types.forEach((t, i) => {
+        const ang = (i / tCount) * Math.PI * 2 - Math.PI / 2;
+        const tx  = cx + Math.cos(ang) * ringT;
+        const ty  = cy + Math.sin(ang) * ringT;
+        const col = colorFor(t);
+
+        s += `<line x1="${cx}" y1="${cy}" x2="${tx}" y2="${ty}" stroke="${col}" stroke-width="2" opacity="0.65"/>`;
+
+        const gs = byType[t];
+        const spread = Math.min(0.9, 0.18 * gs.length);
+        gs.forEach((g, j) => {
+          const off = gs.length > 1 ? (j / (gs.length - 1) - 0.5) * spread : 0;
+          const ga  = ang + off;
+          const gx  = cx + Math.cos(ga) * ringG;
+          const gy  = cy + Math.sin(ga) * ringG;
+          s += `<line x1="${tx}" y1="${ty}" x2="${gx}" y2="${gy}" stroke="${col}" stroke-width="1.4" opacity="0.6"/>`;
+          const fam = (g.family && g.family.length) ? `+${g.family.length}` : '';
+          s += `<g class="node-guest" onclick='showDetail(${JSON.stringify(g).replace(/'/g, "&#39;")})'>
+                  <circle cx="${gx}" cy="${gy}" r="9" fill="${col}"/>
+                  ${fam ? `<circle cx="${gx+8}" cy="${gy-8}" r="6" fill="var(--gold)"/>
+                    <text x="${gx+8}" y="${gy-5}" text-anchor="middle" font-size="7" font-weight="700" fill="#3a2410">${fam}</text>` : ''}
+                  <text x="${gx}" y="${gy + (Math.sin(ga) > 0 ? 22 : -14)}"
+                        text-anchor="middle" font-size="11" font-weight="600" fill="#f4e3e8">${g.name.split(' ')[0]}</text>
+                </g>`;
+        });
+
+        s += `<g>
+                <circle cx="${tx}" cy="${ty}" r="22" fill="#fff" stroke="${col}" stroke-width="2.5"/>
+                <text x="${tx}" y="${ty-1}" text-anchor="middle" font-size="9" font-weight="700" fill="${col}">${gs.length}</text>
+                <text x="${tx}" y="${ty+9}" text-anchor="middle" font-size="6.5" font-weight="700" fill="${col}">${t.slice(0,9)}</text>
+              </g>`;
+      });
+
+      // VIP centre: use event host display name
+      const hostLabel = (currentUser && (currentUser.displayName || currentUser.email.split('@')[0])) || 'VIP';
+      const shortLabel = hostLabel.length > 8 ? hostLabel.slice(0, 7) + '…' : hostLabel;
+      s += `<circle cx="${cx}" cy="${cy}" r="40" fill="url(#vipg)"/>
+            <text x="${cx}" y="${cy-3}" text-anchor="middle" font-size="13" font-weight="800" fill="#3a2410" font-family="Fraunces,serif">VIP</text>
+            <text x="${cx}" y="${cy+12}" text-anchor="middle" font-size="9" font-weight="700" fill="#3a2410">${shortLabel}</text>`;
+
+      svg.innerHTML = `<defs><radialGradient id="vipg"><stop offset="0%" stop-color="#f0d79e"/><stop offset="100%" stop-color="#d4a657"/></radialGradient></defs>` + s;
+    }
+
+    // ── Guest detail panel (exposed globally for SVG onclick) ─────
+    window.showDetail = function(g) {
+      const d = document.getElementById('detail');
+      d.classList.remove('hidden');
+      const fam = (g.family && g.family.length)
+        ? g.family.map(f =>
+            `<span class="text-xs px-2 py-1 rounded-md mr-1.5" style="background:#fff;color:var(--wine)">${f.rel ? f.rel + ' · ' : ''}${f.name}</span>`
+          ).join('')
+        : '<span class="text-sm" style="color:var(--muted)">Coming alone</span>';
+      d.innerHTML = `
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <div>
+            <p class="font-display text-lg font-600" style="color:var(--plum-900)">${g.name}</p>
+            <p class="text-sm" style="color:var(--wine)"><strong>${g.relationType}</strong>${g.branch ? ' · ' + g.branch : ''}</p>
+          </div>
+          <span class="text-xs font-700" style="color:var(--muted)">${g.id.slice(0,8).toUpperCase()}</span>
+        </div>
+        <p class="text-xs font-700 tracking-wider mt-3 mb-1" style="color:var(--muted)">ARRIVING WITH</p>
+        <div>${fam}</div>`;
+      d.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    };
+
+    // ── Guest list cards ──────────────────────────────────────────
+    function drawList(guests) {
+      if (!guests.length) {
+        document.getElementById('guestList').innerHTML =
+          '<p class="text-sm col-span-full" style="color:var(--muted)">No guests yet — share the invite link above.</p>';
+        return;
+      }
+      document.getElementById('guestList').innerHTML = guests.map(g => {
+        const col = colorFor(g.relationType);
+        const famCount = g.family ? g.family.length : 0;
+        return `<div class="glass-light p-5" style="transition:transform .25s ease"
+                     onmouseover="this.style.transform='translateY(-3px)'"
+                     onmouseout="this.style.transform='none'">
+          <div class="flex items-start justify-between">
+            <div>
+              <p class="font-display text-lg font-600" style="color:var(--plum-900)">${g.name}</p>
+              <span class="inline-block mt-1 text-xs font-700 px-2.5 py-0.5 rounded-full"
+                    style="background:${col}1a;color:${col}">${g.relationType}</span>
+            </div>
+            <span class="w-8 h-8 rounded-full grid place-items-center text-xs font-700"
+                  style="background:${col};color:#fff">${g.name[0]}</span>
+          </div>
+          ${g.branch ? `<p class="text-sm mt-3" style="color:var(--muted)">via ${g.branch}</p>` : ''}
+          <p class="text-xs mt-2" style="color:var(--muted)">${famCount ? `+${famCount} family member${famCount > 1 ? 's' : ''}` : 'Coming alone'}</p>
+        </div>`;
+      }).join('');
+    }
+  </script>
+  <script src="/js/livebg.js"></script>
+
+</body></html>
