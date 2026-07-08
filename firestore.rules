@@ -3,23 +3,26 @@ service cloud.firestore {
   match /databases/{database}/documents {
 
     // ── Events ────────────────────────────────────────────────────
-    // Only the signed-in host who created the event can read/update/delete it.
     match /events/{eventId} {
       allow read:   if request.auth != null && request.auth.uid == resource.data.hostUid;
       allow create: if request.auth != null && request.resource.data.hostUid == request.auth.uid;
       allow update, delete:
                     if request.auth != null && request.auth.uid == resource.data.hostUid;
 
-      // ── Guests (sub-collection) ───────────────────────────────
-      // Guests register without logging in, so create is open.
-      // Only the host can list all guests (dashboard).
-      // Anyone can read a single guest doc by its ID (pass page bookmark).
+      // ── Guests ───────────────────────────────────────────────────
       match /guests/{guestId} {
-        allow create: if true;   // unauthenticated guests register via QR
+        allow create: if true;   // guests register without login
+        allow get:    if true;   // guest can reload their pass by URL
+
+        // Only the event host can list all guests (dashboard)
         allow list:   if request.auth != null &&
                         get(/databases/$(database)/documents/events/$(eventId)).data.hostUid
                           == request.auth.uid;
-        allow get:    if true;   // guest can reload their pass by bookmarked URL
+
+        // Only the event host can update (check-in via door scanner)
+        allow update: if request.auth != null &&
+                        get(/databases/$(database)/documents/events/$(eventId)).data.hostUid
+                          == request.auth.uid;
       }
     }
 

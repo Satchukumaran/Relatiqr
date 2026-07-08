@@ -96,6 +96,27 @@
       </button>
     </div>
 
+    <!-- Invite QR + Scan button (shown when event is active) -->
+    <div id="inviteQRSection" class="hidden mt-4 grid sm:grid-cols-2 gap-4">
+      <!-- QR code card -->
+      <div class="p-5 rounded-2xl text-center" style="background:#fff;border:1px solid var(--line)">
+        <p class="text-sm font-700 mb-3" style="color:var(--plum-900)">📱 Invite QR Code</p>
+        <canvas id="inviteQRCanvas" class="mx-auto rounded-xl" style="display:block"></canvas>
+        <p class="text-xs mt-2 mb-3" style="color:var(--muted)">Print this on invitations</p>
+        <button onclick="downloadInviteQR()"
+                class="btn-gold text-xs font-700 px-4 py-2 rounded-full">⬇ Download QR</button>
+      </div>
+      <!-- Scan at door card -->
+      <div class="p-5 rounded-2xl flex flex-col items-center justify-center text-center"
+           style="background:linear-gradient(135deg,var(--plum-900),var(--wine));border:1px solid rgba(255,255,255,.1)">
+        <div class="text-4xl mb-3">📷</div>
+        <p class="font-display text-lg font-600 mb-1" style="color:var(--cream)">Scan guests at the door</p>
+        <p class="text-xs mb-4" style="color:rgba(255,255,255,.6)">Use your camera to verify guest passes</p>
+        <a id="scanDoorLink" href="/scan"
+           class="btn-gold text-sm font-700 px-5 py-2.5 rounded-full">Open Scanner →</a>
+      </div>
+    </div>
+
     <!-- No-event placeholder -->
     <div id="noEventMsg" class="mt-8 text-center py-16 rounded-3xl"
          style="border:1px dashed var(--line)">
@@ -262,6 +283,7 @@
         content.classList.add('hidden');
         noMsg.classList.remove('hidden');
         bar.classList.add('hidden');
+        document.getElementById('inviteQRSection').classList.add('hidden');
         return;
       }
 
@@ -270,6 +292,7 @@
       const inviteUrl = `${baseUrl}/register?event=${ev.id}`;
       document.getElementById('inviteLinkText').textContent = inviteUrl;
       bar.classList.remove('hidden');
+      generateInviteQR(inviteUrl);
 
       // Show content panel, start real-time listener
       noMsg.classList.add('hidden');
@@ -283,6 +306,27 @@
           render(guests, ev);
         }
       );
+    };
+
+    // ── Invite QR code generation ────────────────────────────────
+    function generateInviteQR(url) {
+      const canvas = document.getElementById('inviteQRCanvas');
+      QRCode.toCanvas(canvas, url, {
+        width: 200, margin: 2,
+        color: { dark: '#2a1230', light: '#ffffff' }
+      });
+      document.getElementById('inviteQRSection').classList.remove('hidden');
+      // Update scan link to include eventId
+      const eventId = selectedEvent ? selectedEvent.id : '';
+      document.getElementById('scanDoorLink').href = '/scan?event=' + eventId;
+    }
+
+    window.downloadInviteQR = function() {
+      const canvas = document.getElementById('inviteQRCanvas');
+      const link   = document.createElement('a');
+      link.download = (selectedEvent ? selectedEvent.name.replace(/\s+/g, '-') : 'event') + '-invite-qr.png';
+      link.href = canvas.toDataURL();
+      link.click();
     };
 
     // ── Copy invite link ──────────────────────────────────────────
@@ -470,6 +514,7 @@
       }).join('');
     }
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
   <script src="/js/livebg.js"></script>
 
 </body></html>

@@ -1,22 +1,23 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+// ─────────────────────────────────────────────────────────────────
+//  RelatiQR — Firebase configuration
+//  Paste your Firebase project values below.
+//  See README-firebase-setup.md for step-by-step instructions.
+// ─────────────────────────────────────────────────────────────────
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+import { initializeApp }   from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js';
+import { getAuth }         from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js';
+import { getFirestore }    from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
+
 const firebaseConfig = {
-  apiKey: "AIzaSyBKBcJZMj5hPmdg9depMzBXQn6-XZKJZHs",
-  authDomain: "relatiqr.firebaseapp.com",
-  databaseURL: "https://relatiqr-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "relatiqr",
-  storageBucket: "relatiqr.firebasestorage.app",
-  messagingSenderId: "753558443546",
-  appId: "1:753558443546:web:c0d2edf7224caebb6663a3",
-  measurementId: "G-TVL81S6QKN"
+  apiKey:            "YOUR_API_KEY",
+  authDomain:        "YOUR_PROJECT_ID.firebaseapp.com",
+  projectId:         "YOUR_PROJECT_ID",
+  storageBucket:     "YOUR_PROJECT_ID.appspot.com",
+  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+  appId:             "YOUR_APP_ID"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+
+export const auth = getAuth(app);
+export const db   = getFirestore(app);

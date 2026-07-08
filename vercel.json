@@ -2,8 +2,10 @@
   "rewrites": [
     { "source": "/",          "destination": "/pages/index.html" },
     { "source": "/login",     "destination": "/pages/login/index.html" },
+    { "source": "/signup",    "destination": "/pages/signup/index.html" },
     { "source": "/register",  "destination": "/pages/register/index.html" },
     { "source": "/pass",      "destination": "/pages/pass/index.html" },
-    { "source": "/dashboard", "destination": "/pages/dashboard/index.html" }
+    { "source": "/dashboard", "destination": "/pages/dashboard/index.html" },
+    { "source": "/scan",      "destination": "/pages/scan/index.html" }
   ]
 }

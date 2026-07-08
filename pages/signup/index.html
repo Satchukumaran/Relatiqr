@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Host Account — RelatiQR</title>
+  <link rel="stylesheet" href="/css/theme.css">
+  <script src="https://cdn.moda.app/runtime-libs/tailwind-browser-4.1.13-index.global.min.js"></script>
+  <style data-moda-export-fonts="true">@font-face { font-family: 'Manrope'; src: url("../../fonts/manrope-wght--extralight.ttf") format("truetype"); font-style: normal; font-weight: 200; font-display: swap; }
+@font-face { font-family: 'Manrope'; src: url("../../fonts/manrope-wght--light.ttf") format("truetype"); font-style: normal; font-weight: 300; font-display: swap; }
+@font-face { font-family: 'Manrope'; src: url("../../fonts/manrope-wght--regular.ttf") format("truetype"); font-style: normal; font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Manrope'; src: url("../../fonts/manrope-wght--medium.ttf") format("truetype"); font-style: normal; font-weight: 500; font-display: swap; }
+@font-face { font-family: 'Manrope'; src: url("../../fonts/manrope-wght--semibold.ttf") format("truetype"); font-style: normal; font-weight: 600; font-display: swap; }
+@font-face { font-family: 'Manrope'; src: url("../../fonts/manrope-wght--bold.ttf") format("truetype"); font-style: normal; font-weight: 700; font-display: swap; }
+@font-face { font-family: 'Manrope'; src: url("../../fonts/manrope-wght--extrabold.ttf") format("truetype"); font-style: normal; font-weight: 800; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../../fonts/fraunces-soft-wonk-opsz-wght--blackitalic.ttf") format("truetype"); font-style: italic; font-weight: 900; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../../fonts/fraunces-soft-wonk-opsz-wght--thin.ttf") format("truetype"); font-style: normal; font-weight: 100; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../../fonts/fraunces-soft-wonk-opsz-wght--thinitalic.ttf") format("truetype"); font-style: italic; font-weight: 100; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../../fonts/fraunces-soft-wonk-opsz-wght--extralight.ttf") format("truetype"); font-style: normal; font-weight: 200; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../../fonts/fraunces-soft-wonk-opsz-wght--extralightitalic.ttf") format("truetype"); font-style: italic; font-weight: 200; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../../fonts/fraunces-soft-wonk-opsz-wght--light.ttf") format("truetype"); font-style: normal; font-weight: 300; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../../fonts/fraunces-soft-wonk-opsz-wght--lightitalic.ttf") format("truetype"); font-style: italic; font-weight: 300; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../../fonts/fraunces-soft-wonk-opsz-wght--regular.ttf") format("truetype"); font-style: normal; font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../../fonts/fraunces-soft-wonk-opsz-wght--italic.ttf") format("truetype"); font-style: italic; font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../../fonts/fraunces-soft-wonk-opsz-wght--medium.ttf") format("truetype"); font-style: normal; font-weight: 500; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../../fonts/fraunces-soft-wonk-opsz-wght--mediumitalic.ttf") format("truetype"); font-style: italic; font-weight: 500; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../../fonts/fraunces-soft-wonk-opsz-wght--semibold.ttf") format("truetype"); font-style: normal; font-weight: 600; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../../fonts/fraunces-soft-wonk-opsz-wght--semibolditalic.ttf") format("truetype"); font-style: italic; font-weight: 600; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../../fonts/fraunces-soft-wonk-opsz-wght--bold.ttf") format("truetype"); font-style: normal; font-weight: 700; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../../fonts/fraunces-soft-wonk-opsz-wght--bolditalic.ttf") format("truetype"); font-style: italic; font-weight: 700; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../../fonts/fraunces-soft-wonk-opsz-wght--extrabold.ttf") format("truetype"); font-style: normal; font-weight: 800; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../../fonts/fraunces-soft-wonk-opsz-wght--extrabolditalic.ttf") format("truetype"); font-style: italic; font-weight: 800; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url("../../fonts/fraunces-soft-wonk-opsz-wght--black.ttf") format("truetype"); font-style: normal; font-weight: 900; font-display: swap; }</style>
+</head>
+<body class="min-h-screen grid place-items-center px-4 py-12"
+      style="background:linear-gradient(160deg,#1a0a20,#2d0f1f,#1a0d2e)">
+
+  <div class="w-full max-w-md">
+
+    <!-- Logo -->
+    <div class="flex items-center justify-center gap-3 mb-8">
+      <span class="w-12 h-12 rounded-2xl grid place-items-center"
+            style="background:linear-gradient(135deg,var(--gold),var(--gold-soft))">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3a2410" stroke-width="2">
+          <circle cx="7" cy="7" r="3"/><circle cx="17" cy="17" r="3"/><path d="M10 7h7v7"/>
+        </svg>
+      </span>
+      <span class="font-display text-3xl font-600" style="color:var(--cream)">RelatiQR</span>
+    </div>
+
+    <!-- Card -->
+    <div class="glass p-8">
+      <h1 class="font-display text-2xl font-600 text-center mb-1" style="color:var(--cream)">Create host account</h1>
+      <p class="text-center text-sm mb-6" style="color:rgba(255,255,255,.5)">Set up your account to manage events</p>
+
+      <form id="signupForm" class="space-y-4">
+        <div>
+          <label class="block text-xs font-700 tracking-wider mb-1.5" style="color:rgba(255,255,255,.5)">YOUR NAME</label>
+          <input id="displayName" type="text" required placeholder="e.g. Satchu Kumaran"
+                 class="field w-full" autocomplete="name">
+        </div>
+        <div>
+          <label class="block text-xs font-700 tracking-wider mb-1.5" style="color:rgba(255,255,255,.5)">EMAIL</label>
+          <input id="signupEmail" type="email" required placeholder="you@email.com"
+                 class="field w-full" autocomplete="email">
+        </div>
+        <div>
+          <label class="block text-xs font-700 tracking-wider mb-1.5" style="color:rgba(255,255,255,.5)">PASSWORD</label>
+          <div class="relative">
+            <input id="signupPw" type="password" required placeholder="Min 6 characters"
+                   class="field w-full pr-16" autocomplete="new-password">
+            <button type="button" onclick="togglePw()"
+                    class="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-700"
+                    style="color:var(--gold-soft)">Show</button>
+          </div>
+        </div>
+
+        <p id="signupError" class="hidden text-sm text-center" style="color:#f87171"></p>
+
+        <button type="submit"
+                class="btn-glossy w-full font-700 py-3.5 rounded-full mt-2">Create account →</button>
+
+        <!-- Google -->
+        <div class="flex items-center gap-3 my-2">
+          <div class="flex-1 h-px" style="background:rgba(255,255,255,.12)"></div>
+          <span class="text-xs" style="color:rgba(255,255,255,.4)">or</span>
+          <div class="flex-1 h-px" style="background:rgba(255,255,255,.12)"></div>
+        </div>
+        <button id="btnGoogleSignup" type="button"
+                class="btn-ghost w-full py-2.5 rounded-full text-sm font-600 flex items-center justify-center gap-2">
+          <svg width="16" height="16" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+          Continue with Google
+        </button>
+      </form>
+
+      <!-- Done state (hidden) -->
+      <div id="done" class="hidden text-center py-6">
+        <div class="text-5xl mb-3">🎉</div>
+        <p class="font-display text-xl font-600" style="color:var(--cream)">Account created!</p>
+        <p class="text-sm mt-1" style="color:rgba(255,255,255,.5)">Taking you to your dashboard…</p>
+      </div>
+
+      <p class="text-center text-sm mt-5" style="color:rgba(255,255,255,.4)">
+        Already have an account?
+        <a href="/login" class="font-700" style="color:var(--gold-soft)">Sign in</a>
+      </p>
+    </div>
+  </div>
+
+  <script type="module">
+    import { auth } from '/js/firebase-config.js';
+    import {
+      createUserWithEmailAndPassword,
+      updateProfile,
+      GoogleAuthProvider,
+      signInWithPopup,
+      onAuthStateChanged
+    } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js';
+
+    // Redirect if already signed in
+    onAuthStateChanged(auth, user => {
+      if (user) window.location.href = '/dashboard';
+    });
+
+    window.togglePw = function() {
+      const pw = document.getElementById('signupPw');
+      const btn = event.target;
+      if (pw.type === 'password') { pw.type = 'text'; btn.textContent = 'Hide'; }
+      else { pw.type = 'password'; btn.textContent = 'Show'; }
+    };
+
+    function showError(msg) {
+      const el = document.getElementById('signupError');
+      el.textContent = msg; el.classList.remove('hidden');
+    }
+
+    function finish() {
+      document.getElementById('signupForm').classList.add('hidden');
+      document.getElementById('done').classList.remove('hidden');
+      setTimeout(() => window.location.href = '/dashboard', 1500);
+    }
+
+    function friendlyError(code) {
+      const map = {
+        'auth/email-already-in-use': 'An account with this email already exists.',
+        'auth/invalid-email':        'Please enter a valid email address.',
+        'auth/weak-password':        'Password must be at least 6 characters.',
+      };
+      return map[code] || 'Something went wrong. Please try again.';
+    }
+
+    // Email / password sign-up
+    document.getElementById('signupForm').addEventListener('submit', async e => {
+      e.preventDefault();
+      document.getElementById('signupError').classList.add('hidden');
+      const btn  = e.target.querySelector('button[type=submit]');
+      const name  = document.getElementById('displayName').value.trim();
+      const email = document.getElementById('signupEmail').value.trim();
+      const pw    = document.getElementById('signupPw').value;
+
+      if (!name) { showError('Please enter your name.'); return; }
+
+      btn.textContent = 'Creating account…'; btn.disabled = true;
+      try {
+        const cred = await createUserWithEmailAndPassword(auth, email, pw);
+        await updateProfile(cred.user, { displayName: name });
+        finish();
+      } catch(err) {
+        showError(friendlyError(err.code));
+        btn.textContent = 'Create account →'; btn.disabled = false;
+      }
+    });
+
+    // Google sign-up
+    document.getElementById('btnGoogleSignup').addEventListener('click', async () => {
+      document.getElementById('signupError').classList.add('hidden');
+      try {
+        await signInWithPopup(auth, new GoogleAuthProvider());
+        finish();
+      } catch(err) {
+        if (err.code !== 'auth/popup-closed-by-user') showError(friendlyError(err.code));
+      }
+    });
+  </script>
+</body></html>

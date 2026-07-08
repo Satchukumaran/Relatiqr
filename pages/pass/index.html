@@ -28,7 +28,8 @@
 @font-face { font-family: 'Fraunces'; src: url("../../fonts/fraunces-soft-wonk-opsz-wght--bolditalic.ttf") format("truetype"); font-style: italic; font-weight: 700; font-display: swap; }
 @font-face { font-family: 'Fraunces'; src: url("../../fonts/fraunces-soft-wonk-opsz-wght--extrabold.ttf") format("truetype"); font-style: normal; font-weight: 800; font-display: swap; }
 @font-face { font-family: 'Fraunces'; src: url("../../fonts/fraunces-soft-wonk-opsz-wght--extrabolditalic.ttf") format("truetype"); font-style: italic; font-weight: 800; font-display: swap; }
-@font-face { font-family: 'Fraunces'; src: url("../../fonts/fraunces-soft-wonk-opsz-wght--black.ttf") format("truetype"); font-style: normal; font-weight: 900; font-display: swap; }</style></head>
+@font-face { font-family: 'Fraunces'; src: url("../../fonts/fraunces-soft-wonk-opsz-wght--black.ttf") format("truetype"); font-style: normal; font-weight: 900; font-display: swap; }</style>  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+</head>
 <body data-bg="dark" class="min-h-screen flex flex-col relative overflow-x-hidden" style="background:radial-gradient(120% 80% at 50% -5%, #531f5e 0%, var(--wine) 35%, var(--plum-950) 80%)">
   <div class="aurora aurora-anim" style="width:460px;height:460px;background:#d4a657;top:-160px;right:-120px;opacity:.32"></div>
   <div class="aurora aurora-anim" style="width:420px;height:420px;background:#7a2a55;bottom:-150px;left:-120px;animation-delay:-6s"></div>
@@ -144,34 +145,15 @@
       document.getElementById('familyRow').style.display = 'none';
     }
 
-    // QR encodes the guest pass ID so staff can scan it at the door
-    drawQR('qr', shortId + '|' + me.name);
+    // Generate real scannable QR — encodes full pass URL so scanner can look up guest
+    const passUrl = `${window.location.origin}/pass?event=${eventId}&g=${guestId}`;
+    QRCode.toCanvas(document.getElementById('qr'), passUrl, {
+      width: 180, margin: 2,
+      color: { dark: '#2a1230', light: '#ffffff' }
+    });
   })();
 
-  // Deterministic decorative QR-style matrix
-  function drawQR(id, seedStr) {
-    const c = document.getElementById(id), ctx = c.getContext('2d');
-    const N = 21, cell = c.width / N;
-    let h = 2166136261;
-    for (let i = 0; i < seedStr.length; i++) { h ^= seedStr.charCodeAt(i); h = Math.imul(h, 16777619); }
-    const rand = () => { h ^= h << 13; h ^= h >>> 17; h ^= h << 5; return ((h >>> 0) % 1000) / 1000; };
-
-    ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, c.width, c.height);
-    ctx.fillStyle = '#1d0b1f';
-    const finder = (ox, oy) => {
-      for (let y = 0; y < 7; y++) for (let x = 0; x < 7; x++) {
-        const edge = x === 0 || x === 6 || y === 0 || y === 6;
-        const core = x >= 2 && x <= 4 && y >= 2 && y <= 4;
-        if (edge || core) ctx.fillRect((ox + x) * cell, (oy + y) * cell, cell, cell);
-      }
-    };
-    for (let y = 0; y < N; y++) for (let x = 0; x < N; x++) {
-      const inFinder = (x < 8 && y < 8) || (x > N - 9 && y < 8) || (x < 8 && y > N - 9);
-      if (inFinder) continue;
-      if (rand() > 0.5) ctx.fillRect(x * cell, y * cell, cell, cell);
-    }
-    finder(0, 0); finder(N - 7, 0); finder(0, N - 7);
-  }
+  // QR rendering handled by QRCode.js library above
 </script>
   <script src="/js/livebg.js"></script>
 
